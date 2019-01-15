@@ -1,0 +1,17 @@
+project STM32_Library is
+	for Source_Dirs use ("source");
+	for Object_Dir use "objects";
+	for Library_Dir use "library";
+	for Library_Name use "stm32";
+	for Library_Kind use "static";
+	--for Library_Interface use ("STM32", "STM32.STM32F407Z");
+	for Target use "arm-eabi";
+	--for Runtime("ada") use "ravenscar-sfp-stm32f4";
+	package Builder is
+		for Default_Switches("Ada") use (
+			"-gnato",
+			"-O2",
+			"-gnatW8"
+		);
+	end Builder;
+end STM32_Library;
