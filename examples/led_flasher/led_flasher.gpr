@@ -1,0 +1,24 @@
+with "../../stm32_library.gpr";
+project LED_Flasher is
+	for Languages use("Ada");
+	for Main use("led_flasher.adb");
+	for Object_Dir use "objects";
+	for Target use "arm-eabi";
+	for Runtime("Ada") use "ravenscar-sfp-stm32f4";
+	for Source_Dirs use("source");
+
+	package Compiler is
+		for Default_Switches("Ada") use ("-gnatwa.X", "-gnatQ", "-gnatn", "-O2");
+	end Compiler;
+
+	package Builder is
+		for Default_Switches("Ada") use ("-ggdb");
+	end Builder;
+
+	package IDE is
+		for Program_Host use "localhost:4242";
+		for Communication_Protocol use "remote";
+		for Connection_Tool use "st-util";
+	end IDE;
+	
+end LED_Flasher;
