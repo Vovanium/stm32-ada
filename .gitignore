@@ -3,3 +3,18 @@
 
 # Ada Library Information
 *.ali
+
+# Library archive
+*.a
+
+# GPRBuild output
+*.adb.stderr
+*.adb.stdout
+*.ads.stderr
+*.ads.stdout
+*.bexch
+*.lexch
+
+# Binder code
+b__*.adb
+b__*.ads
