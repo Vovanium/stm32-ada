@@ -1,0 +1,28 @@
+project SDRAM_429disco is
+	Loader := "USER";
+	for Languages use("Ada", "Asm");
+	for Main use("sdram.adb");
+	for Object_Dir use "objects";
+	for Target use "arm-eabi";
+	for Runtime("Ada") use "ravenscar-sfp-stm32f429disco";
+	for Source_Dirs use("source");
+
+	package Compiler is
+		for Default_Switches("Ada") use ("-gnatwa.X", "-gnatQ", "-gnatn", "-O2");
+	end Compiler;
+
+	package Builder is
+		for Default_Switches("Ada") use ("-ggdb");
+	end Builder;
+
+	package Linker is
+		for Required_Switches use ("-L./ld", "-T", "ROM-SDRAM-8M.ld") & Linker'Required_Switches;
+	end Linker;
+
+	package IDE is
+		for Program_Host use "localhost:4242";
+		for Communication_Protocol use "remote";
+		for Connection_Tool use "st-util";
+	end IDE;
+	
+end SDRAM_429disco;
