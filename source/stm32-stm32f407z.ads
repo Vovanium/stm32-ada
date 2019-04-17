@@ -1,56 +1,56 @@
 with System;
-with STM32.Registers.GPIO;
+with STM32.STM32F4.GPIO;
 with STM32.Registers.RCC;
 with STM32.Registers.EXTI;
 with STM32.Registers.SYSCFG;
 with STM32.Registers.FSMC;
-with STM32.Registers.STM32F4_Map;
+with STM32.STM32F4.Address_Map;
 
 package STM32.STM32F407Z is
 	pragma Preelaborate;
 
+	package Address_Map renames STM32.STM32F4.Address_Map;
+	package Modules is
+		package EXTI renames STM32.Registers.EXTI;
+		package FSMC renames STM32.Registers.FSMC;
+		package GPIO renames STM32.STM32F4.GPIO;
+		--package GPIO_Ports renames STM32.STM32F4.GPIO.Ports;
+		package RCC renames STM32.Registers.RCC;
+		package SYSCFG renames STM32.Registers.SYSCFG;
+	end Modules;
+	
 	--pragma Warnings (Off, "* may call Last_Chance_Handler");
 	--pragma Warnings (Off, "* may be incompatible with alignment of object");
 
-	EXTI: Registers.EXTI.EXTI_Registers
-	with Volatile, Import,
-	Address => System'To_Address(Registers.STM32F4_Map.EXTI);
+	EXTI: Modules.EXTI.EXTI_Registers
+	 with Volatile, Import, Address => System'To_Address(Address_Map.EXTI);
 
-	FSMC: Registers.FSMC.FSMC_Registers
-	with Volatile, Import,
-	Address => System'To_Address(Registers.STM32F4_Map.FSMC);
+	FSMC: Modules.FSMC.FSMC_Registers
+	 with Volatile, Import, Address => System'To_Address(Address_Map.FMC_FSMC);
 
-	GPIOA: Registers.GPIO.GPIO_Registers
-	with Volatile, Import,
-	Address => System'To_Address(Registers.STM32F4_Map.GPIOA);
+	GPIOA: Modules.GPIO.GPIO_Registers
+	 with Volatile, Import, Address => System'To_Address(Address_Map.GPIOA);
 
-	GPIOC: Registers.GPIO.GPIO_Registers
-	with Volatile, Import,
-	Address => System'To_Address(Registers.STM32F4_Map.GPIOC);
+	GPIOC: Modules.GPIO.GPIO_Registers
+	 with Volatile, Import, Address => System'To_Address(Address_Map.GPIOC);
 
-	GPIOD: Registers.GPIO.GPIO_Registers
-	with Volatile, Import,
-	Address => System'To_Address(Registers.STM32F4_Map.GPIOD);
+	GPIOD: Modules.GPIO.GPIO_Registers
+	 with Volatile, Import, Address => System'To_Address(Address_Map.GPIOD);
 
-	GPIOE: Registers.GPIO.GPIO_Registers
-	with Volatile, Import,
-	Address => System'To_Address(Registers.STM32F4_Map.GPIOE);
+	GPIOE: Modules.GPIO.GPIO_Registers
+	 with Volatile, Import, Address => System'To_Address(Address_Map.GPIOE);
 
-	GPIOF: Registers.GPIO.GPIO_Registers
-	with Volatile, Import,
-	Address => System'To_Address(Registers.STM32F4_Map.GPIOF);
+	GPIOF: Modules.GPIO.GPIO_Registers
+	 with Volatile, Import, Address => System'To_Address(Address_Map.GPIOF);
 
-	GPIOG: Registers.GPIO.GPIO_Registers
-	with Volatile, Import,
-	Address => System'To_Address(Registers.STM32F4_Map.GPIOG);
+	GPIOG: Modules.GPIO.GPIO_Registers
+	 with Volatile, Import, Address => System'To_Address(Address_Map.GPIOG);
 
-	RCC: Registers.RCC.RCC_Registers
-	with Volatile, Import,
-	Address => System'To_Address(Registers.STM32F4_Map.RCC);
+	RCC: Modules.RCC.RCC_Registers
+	 with Volatile, Import, Address => System'To_Address(Address_Map.RCC);
 
-	SYSCFG: Registers.SYSCFG.SYSCFG_Registers
-	with Volatile, Import,
-	Address => System'To_Address(Registers.STM32F4_Map.SYSCFG);
+	SYSCFG: Modules.SYSCFG.SYSCFG_Registers
+	 with Volatile, Import, Address => System'To_Address(Address_Map.SYSCFG);
 
 	--pragma Warnings (On, "* may call Last_Chance_Handler");
 	--pragma Warnings (On, "* may be incompatible with alignment of object");

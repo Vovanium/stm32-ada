@@ -1,7 +1,7 @@
 with Interfaces;
 use Interfaces;
 
-package STM32.Registers.GPIO is
+package STM32.STM32F4.GPIO is
 	pragma Pure;
 
 	subtype Port_Bit_Number is Natural range 0 .. 15;
@@ -175,4 +175,4 @@ package STM32.Registers.GPIO is
 		AFR     at 16#20# range 0 .. 63;
 	end record;
 
-end STM32.Registers.GPIO;
+end STM32.STM32F4.GPIO;

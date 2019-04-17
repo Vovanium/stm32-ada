@@ -1,6 +1,6 @@
 with STM32.STM32F429Z;          use STM32.STM32F429Z;
-with STM32.General_Purpose_IO;  use STM32.General_Purpose_IO;
-with STM32.Registers.GPIO;      use STM32.Registers.GPIO;
+use STM32.STM32F429Z.Modules.GPIO;
+with STM32.STM32F4.GPIO.Ports;  use STM32.STM32F4.GPIO.Ports;
 with Ada.Real_Time;             use Ada.Real_Time;
 
 procedure LED_Flasher_429disco is
@@ -9,6 +9,7 @@ procedure LED_Flasher_429disco is
 	Now: Time := Clock;
 	LED_Port: GPIO_Registers renames GPIOG;
 	LED_Bit: constant Port_Bit_Number := 13;
+	LED_On: constant Boolean := True;
 	package LED is new GPIO_Port_Boolean(LED_Port, LED_Bit);
 begin
 	RCC.AHB1ENR.GPIOG := True;
@@ -17,9 +18,9 @@ begin
 	LED_Port.OSPEEDR(LED_Bit) := Very_High_Speed;
 	LED_Port.PUPDR(LED_Bit)   := No_Pull;
 	loop
-		LED.Set(True);
+		LED.Set(LED_On);
 		delay until Now + On_Time;
-		LED.Set(False);
+		LED.Set(not LED_On);
 		Now := Now + Period;
 		delay until Now;
 	end loop;

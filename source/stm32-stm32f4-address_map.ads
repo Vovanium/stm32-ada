@@ -1,4 +1,4 @@
-package STM32.Registers.STM32F4_Map is
+package STM32.STM32F4.Address_Map is
 	pragma Pure;
 
 
@@ -29,6 +29,8 @@ package STM32.Registers.STM32F4_Map is
 	CAN2:        constant := 16#4000_6800#;
 	PWR:         constant := 16#4000_7000#;
 	DAC:         constant := 16#4000_7400#;
+	UART7:       constant := 14#4000_7800#;
+	UART8:       constant := 14#4000_7C00#;
 	TIM1:        constant := 16#4001_0000#;
 	TIM8:        constant := 16#4001_0400#;
 	USART1:      constant := 16#4001_1000#;
@@ -36,6 +38,7 @@ package STM32.Registers.STM32F4_Map is
 	ADC1_2_3:    constant := 16#4001_2000#;
 	SDIO:        constant := 16#4001_2C00#;
 	SPI1:        constant := 16#4001_3000#;
+	SPI4:        constant := 16#4001_3400#;
 	SYSCFG:      constant := 16#4001_3800#;
 	EXTI:        constant := 16#4001_3C00#;
 	TIM9:        constant := 16#4001_4000#;
@@ -50,6 +53,8 @@ package STM32.Registers.STM32F4_Map is
 	GPIOG:       constant := 16#4002_1800#;
 	GPIOH:       constant := 16#4002_1C00#;
 	GPIOI:       constant := 16#4002_2000#;
+	GPIOJ:       constant := 16#4002_2400#;
+	GPIOK:       constant := 16#4002_2800#;
 	CRC:         constant := 16#4002_3000#;
 	RCC:         constant := 16#4002_3800#;
 	Flash_IR:    constant := 16#4002_3C00#;
@@ -57,14 +62,17 @@ package STM32.Registers.STM32F4_Map is
 	DMA1:        constant := 16#4002_6000#;
 	DMA2:        constant := 16#4002_6400#;
 	Ethernet_MAC:constant := 16#4002_8000#;
+	DMA2D:       constant := 16#4002_B000#;
 	USB_OTG_HS:  constant := 16#4004_0000#;
 	USB_OTG_FS:  constant := 16#5000_0000#;
 	DCMI:        constant := 16#5005_0000#;
+	CRYP:        constant := 16#5006_0000#;
+	HASH:        constant := 16#5006_0400#;
 	RNG:         constant := 16#5006_0800#;
 	FSMC_Bank1:  constant := 16#6000_0000#;
 	FSMC_Bank2:  constant := 16#7000_0000#;
 	FSMC_Bank3:  constant := 16#8000_0000#;
 	FSMC_Bank4:  constant := 16#9000_0000#;
-	FSMC:        constant := 16#A000_0000#;
+	FMC_FSMC:    constant := 16#A000_0000#;
 
-end STM32.Registers.STM32F4_Map;
+end STM32.STM32F4.Address_Map;

@@ -1,66 +1,61 @@
 with System;
-with STM32.Registers.GPIO;
+with STM32.STM32F4.GPIO;
 with STM32.Registers.EXTI;
+with STM32.Registers.RCC;
 with STM32.Registers.SYSCFG;
-with STM32.Registers.STM32F4_Map;
+with STM32.STM32F4.Address_Map;
 
 package STM32.STM32F429Z is
 	pragma Preelaborate;
 
-	EXTI: Registers.EXTI.EXTI_Registers
-	with Volatile, Import,
-	Address => System'To_Address(Registers.STM32F4_Map.EXTI);
+	package Address_Map renames STM32.STM32F4.Address_Map;
+	package Modules is
+		package EXTI renames STM32.Registers.EXTI;
+		package GPIO renames STM32.STM32F4.GPIO;
+		package RCC renames STM32.Registers.RCC;
+		package SYSCFG renames STM32.Registers.SYSCFG;
+	end Modules;
 
-	GPIOA: Registers.GPIO.GPIO_Registers
-	with Volatile, Import,
-	Address => System'To_Address(Registers.STM32F4_Map.GPIOA);
+	EXTI: Modules.EXTI.EXTI_Registers
+	with Volatile, Import, Address => System'To_Address(Address_Map.EXTI);
 
-	GPIOB: Registers.GPIO.GPIO_Registers
-	with Volatile, Import,
-	Address => System'To_Address(Registers.STM32F4_Map.GPIOB);
+	GPIOA: Modules.GPIO.GPIO_Registers
+	with Volatile, Import, Address => System'To_Address(Address_Map.GPIOA);
 
-	GPIOC: Registers.GPIO.GPIO_Registers
-	with Volatile, Import,
-	Address => System'To_Address(Registers.STM32F4_Map.GPIOC);
+	GPIOB: Modules.GPIO.GPIO_Registers
+	with Volatile, Import, Address => System'To_Address(Address_Map.GPIOB);
 
-	GPIOD: Registers.GPIO.GPIO_Registers
-	with Volatile, Import,
-	Address => System'To_Address(Registers.STM32F4_Map.GPIOD);
+	GPIOC: Modules.GPIO.GPIO_Registers
+	with Volatile, Import, Address => System'To_Address(Address_Map.GPIOC);
 
-	GPIOE: Registers.GPIO.GPIO_Registers
-	with Volatile, Import,
-	Address => System'To_Address(Registers.STM32F4_Map.GPIOE);
+	GPIOD: Modules.GPIO.GPIO_Registers
+	with Volatile, Import, Address => System'To_Address(Address_Map.GPIOD);
 
-	GPIOF: Registers.GPIO.GPIO_Registers
-	with Volatile, Import,
-	Address => System'To_Address(Registers.STM32F4_Map.GPIOF);
+	GPIOE: Modules.GPIO.GPIO_Registers
+	with Volatile, Import, Address => System'To_Address(Address_Map.GPIOE);
 
-	GPIOG: Registers.GPIO.GPIO_Registers
-	with Volatile, Import,
-	Address => System'To_Address(Registers.STM32F4_Map.GPIOG);
+	GPIOF: Modules.GPIO.GPIO_Registers
+	with Volatile, Import, Address => System'To_Address(Address_Map.GPIOF);
 
-	GPIOH: Registers.GPIO.GPIO_Registers
-	with Volatile, Import,
-	Address => System'To_Address(Registers.STM32F4_Map.GPIOH);
+	GPIOG: Modules.GPIO.GPIO_Registers
+	with Volatile, Import, Address => System'To_Address(Address_Map.GPIOG);
 
-	GPIOI: Registers.GPIO.GPIO_Registers
-	with Volatile, Import,
-	Address => System'To_Address(Registers.STM32F4_Map.GPIOI);
+	GPIOH: Modules.GPIO.GPIO_Registers
+	with Volatile, Import, Address => System'To_Address(Address_Map.GPIOH);
 
-	GPIOJ: Registers.GPIO.GPIO_Registers
-	with Volatile, Import,
-	Address => System'To_Address(Registers.STM32F4_Map.GPIOJ);
+	GPIOI: Modules.GPIO.GPIO_Registers
+	with Volatile, Import, Address => System'To_Address(Address_Map.GPIOI);
 
-	GPIOK: Registers.GPIO.GPIO_Registers
-	with Volatile, Import,
-	Address => System'To_Address(Registers.STM32F4_Map.GPIOK);
+	GPIOJ: Modules.GPIO.GPIO_Registers
+	with Volatile, Import, Address => System'To_Address(Address_Map.GPIOJ);
 
-	RCC: Registers.RCC.RCC_Registers
-	with Volatile, Import,
-	Address => System'To_Address(Registers.STM32F4_Map.RCC);
+	GPIOK: Modules.GPIO.GPIO_Registers
+	with Volatile, Import, Address => System'To_Address(Address_Map.GPIOK);
 
-	SYSCFG: Registers.SYSCFG.SYSCFG_Registers
-	with Volatile, Import,
-	Address => System'To_Address(Registers.STM32F4_Map.SYSCFG);
+	RCC: Modules.RCC.RCC_Registers
+	with Volatile, Import, Address => System'To_Address(Address_Map.RCC);
+
+	SYSCFG: Modules.SYSCFG.SYSCFG_Registers
+	with Volatile, Import, Address => System'To_Address(Address_Map.SYSCFG);
 
 end STM32.STM32F429Z;

@@ -6,7 +6,7 @@ project STM32_Library is
 	for Library_Kind use "static";
 	--for Library_Interface use ("STM32", "STM32.STM32F407Z");
 	for Target use "arm-eabi";
-	--for Runtime("ada") use "ravenscar-sfp-stm32f4";
+	for Runtime("ada") use "zfp-stm32f4";
 	package Builder is
 		for Default_Switches("Ada") use (
 			"-gnato",

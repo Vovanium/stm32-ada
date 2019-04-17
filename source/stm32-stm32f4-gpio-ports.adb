@@ -1,7 +1,7 @@
 with Interfaces;
 use Interfaces;
 
-package body STM32.General_Purpose_IO is
+package body STM32.STM32F4.GPIO.Ports is
 
 	package body GPIO_Port_Boolean is
 
@@ -25,7 +25,7 @@ package body STM32.General_Purpose_IO is
 		Size: constant Positive := 1 + Last_Bit - First_Bit;
 		Mask: constant Unsigned_16 := 2**(Last_Bit + 1) - 2**First_Bit;
 
-		procedure Set(Value: Format) is
+		procedure Set(Value: Value_Type) is
 		begin
 			Register.BSRR := (
 				BR => Mask,
@@ -33,11 +33,11 @@ package body STM32.General_Purpose_IO is
 			);
 		end;
 
-		function Value return Format is
+		function Value return Value_Type is
 		begin
-			return Format((Register.IDR / 2**First_Bit) and (2**Size - 1));
+			return Value_Type((Register.IDR / 2**First_Bit) and (2**Size - 1));
 		end;
 
 	end GPIO_Port_Modular;
 
-end STM32.General_Purpose_IO;
+end STM32.STM32F4.GPIO.Ports;
