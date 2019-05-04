@@ -1,6 +1,6 @@
 with Interfaces;
 
-package STM32.STM32F4.GPIO.Ports is
+package STM32.F4.GPIO.Ports is
 	-- Single GPIO pin
 	generic
 		Register: in out GPIO_Registers;
@@ -21,4 +21,4 @@ package STM32.STM32F4.GPIO.Ports is
 		function Value return Value_Type with Inline;
 	end GPIO_Port_Modular;
 
-end STM32.STM32F4.GPIO.Ports;
+end STM32.F4.GPIO.Ports;

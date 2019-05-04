@@ -1,22 +1,22 @@
 with System;
-with STM32.STM32F4.GPIO;
-with STM32.Registers.RCC;
-with STM32.Registers.EXTI;
-with STM32.Registers.SYSCFG;
-with STM32.Registers.FSMC;
-with STM32.STM32F4.Address_Map;
+with STM32.F4.GPIO;
+with STM32.F4.RCC;
+with STM32.F4.EXTI;
+with STM32.F4.SYSCFG;
+with STM32.F4.FSMC;
+with STM32.F4.Address_Map;
 
-package STM32.STM32F407Z is
+package STM32.F407Z is
 	pragma Preelaborate;
 
-	package Address_Map renames STM32.STM32F4.Address_Map;
+	package Address_Map renames STM32.F4.Address_Map;
 	package Modules is
-		package EXTI renames STM32.Registers.EXTI;
-		package FSMC renames STM32.Registers.FSMC;
-		package GPIO renames STM32.STM32F4.GPIO;
+		package EXTI renames STM32.F4.EXTI;
+		package FSMC renames STM32.F4.FSMC;
+		package GPIO renames STM32.F4.GPIO;
 		--package GPIO_Ports renames STM32.STM32F4.GPIO.Ports;
-		package RCC renames STM32.Registers.RCC;
-		package SYSCFG renames STM32.Registers.SYSCFG;
+		package RCC renames STM32.F4.RCC;
+		package SYSCFG renames STM32.F4.SYSCFG;
 	end Modules;
 	
 	--pragma Warnings (Off, "* may call Last_Chance_Handler");
@@ -55,4 +55,4 @@ package STM32.STM32F407Z is
 	--pragma Warnings (On, "* may call Last_Chance_Handler");
 	--pragma Warnings (On, "* may be incompatible with alignment of object");
 
-end STM32.STM32F407Z;
+end STM32.F407Z;

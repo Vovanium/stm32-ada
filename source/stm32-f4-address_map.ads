@@ -1,4 +1,4 @@
-package STM32.STM32F4.Address_Map is
+package STM32.F4.Address_Map is
 	pragma Pure;
 
 
@@ -75,4 +75,4 @@ package STM32.STM32F4.Address_Map is
 	FSMC_Bank4:  constant := 16#9000_0000#;
 	FMC_FSMC:    constant := 16#A000_0000#;
 
-end STM32.STM32F4.Address_Map;
+end STM32.F4.Address_Map;

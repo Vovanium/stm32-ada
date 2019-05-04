@@ -1,5 +1,5 @@
 with Interfaces;
-package STM32.Registers.FSMC is
+package STM32.F4.FSMC is
 	pragma Pure;
 	type Memory_Type is (
 		SRAM,
@@ -310,4 +310,4 @@ package STM32.Registers.FSMC is
 		ECCR3 at 16#0094# range 0 .. 31;
 	end record;
 
-end STM32.Registers.FSMC;
+end STM32.F4.FSMC;

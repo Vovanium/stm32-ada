@@ -1,6 +1,6 @@
 with Interfaces;
 
-package STM32.Registers.RCC is
+package STM32.F4.RCC is
 	pragma Preelaborate;
 
 	-- CR
@@ -596,4 +596,4 @@ package STM32.Registers.RCC is
 		PLLI2SCFGR at 16#84# range 0 .. 31;
 	end record;
 
-end STM32.Registers.RCC;
+end STM32.F4.RCC;

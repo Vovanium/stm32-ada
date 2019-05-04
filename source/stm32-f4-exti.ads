@@ -1,4 +1,4 @@
-package STM32.Registers.EXTI is
+package STM32.F4.EXTI is
 	pragma Preelaborate;
 
 	type Event_Number is range 0 .. 22;
@@ -44,4 +44,4 @@ package STM32.Registers.EXTI is
 		PR    at 16#14# range 0 .. 31;
 	end record;
 
-end STM32.Registers.EXTI;
+end STM32.F4.EXTI;

@@ -1,4 +1,4 @@
-package STM32.Registers.SysCfg is
+package STM32.F4.SysCfg is
 	pragma Pure;
 
 	type Memory_Mapping is (
@@ -133,4 +133,4 @@ package STM32.Registers.SysCfg is
 		CMPCR   at 16#20# range 0 .. 31;
 	end record;
 
-end STM32.Registers.SysCfg;
+end STM32.F4.SysCfg;

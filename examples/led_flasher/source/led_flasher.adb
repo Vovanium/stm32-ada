@@ -1,7 +1,7 @@
-with STM32.STM32F407Z;          use STM32.STM32F407Z;
-use STM32.STM32F407Z.Modules.GPIO;
-with STM32.STM32F4.GPIO.Ports;  use STM32.STM32F4.GPIO.Ports;
-with Ada.Real_Time;             use Ada.Real_Time;
+with STM32.F407Z;          use STM32.F407Z;
+use STM32.F407Z.Modules.GPIO;
+with STM32.F4.GPIO.Ports;  use STM32.F4.GPIO.Ports;
+with Ada.Real_Time;        use Ada.Real_Time;
 
 procedure LED_Flasher is
 	Period: constant Time_Span := Milliseconds(250);

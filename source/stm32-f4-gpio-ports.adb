@@ -1,7 +1,7 @@
 with Interfaces;
 use Interfaces;
 
-package body STM32.STM32F4.GPIO.Ports is
+package body STM32.F4.GPIO.Ports is
 
 	package body GPIO_Port_Boolean is
 
@@ -40,4 +40,4 @@ package body STM32.STM32F4.GPIO.Ports is
 
 	end GPIO_Port_Modular;
 
-end STM32.STM32F4.GPIO.Ports;
+end STM32.F4.GPIO.Ports;
