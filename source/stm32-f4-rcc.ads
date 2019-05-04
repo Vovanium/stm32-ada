@@ -278,6 +278,8 @@ package STM32.F4.RCC is
 		GPIOG: Boolean;
 		GPIOH: Boolean;
 		GPIOI: Boolean;
+		GPIOJ: Boolean;
+		GPIOK: Boolean;
 		CRC: Boolean;
 		FLITF: Boolean;
 		SRAM1: Boolean;
@@ -286,6 +288,7 @@ package STM32.F4.RCC is
 		CCMDATARAM: Boolean;
 		DMA1: Boolean;
 		DMA2: Boolean;
+		DMA2D: Boolean;
 		ETHMAC: Boolean;
 		ETHMACTX: Boolean;
 		ETHMACRX: Boolean;
@@ -304,6 +307,8 @@ package STM32.F4.RCC is
 		GPIOG      at 0 range  6 .. 6;
 		GPIOH      at 0 range  7 .. 7;
 		GPIOI      at 0 range  8 .. 8;
+		GPIOJ      at 0 range  9 .. 9;
+		GPIOK      at 0 range 10 .. 10;
 		CRC        at 0 range 12 .. 12;
 		FLITF      at 0 range 15 .. 15;
 		SRAM1      at 0 range 16 .. 16;
@@ -312,6 +317,7 @@ package STM32.F4.RCC is
 		CCMDATARAM at 0 range 20 .. 20;
 		DMA1       at 0 range 21 .. 21;
 		DMA2       at 0 range 22 .. 22;
+		DMA2D      at 0 range 23 .. 23;
 		ETHMAC     at 0 range 25 .. 25;
 		ETHMACTX   at 0 range 26 .. 26;
 		ETHMACRX   at 0 range 27 .. 27;
@@ -339,11 +345,11 @@ package STM32.F4.RCC is
 
 	-- AHB3RSTR, AHB3ENR
 	type AHB3_Register is record
-		FSMC: Boolean;
+		FMC: Boolean;
 	end record with Size => 32;
 
 	for AHB3_Register use record
-		FSMC at 0 range 0 .. 0;
+		FMC at 0 range 0 .. 0;
 	end record;
 
 	-- APB1RSTR, APB1ENR
@@ -371,6 +377,8 @@ package STM32.F4.RCC is
 		CAN2: Boolean;
 		PWR: Boolean;
 		DAC: Boolean;
+		UART7: Boolean;
+		UART8: Boolean;
 	end record with Size => 32;
 
 	for APB1_Register use record
@@ -397,6 +405,8 @@ package STM32.F4.RCC is
 		CAN2   at 0 range 26 .. 26;
 		PWR    at 0 range 28 .. 28;
 		DAC    at 0 range 29 .. 29;
+		UART7  at 0 range 30 .. 30;
+		UART8  at 0 range 31 .. 31;
 	end record;
 
 	-- APB2RSTR, APB2ENR
@@ -410,10 +420,15 @@ package STM32.F4.RCC is
 		ADC3: Boolean;
 		SDIO: Boolean;
 		SPI1: Boolean;
+		SPI4: Boolean;
 		SYSCFG: Boolean;
 		TIM9: Boolean;
 		TIM10: Boolean;
 		TIM11: Boolean;
+		SPI5: Boolean;
+		SPI6: Boolean;
+		SAI1: Boolean;
+		LTDC: Boolean;
 	end record with Size => 32;
 
 	for APB2_Register use record
@@ -426,10 +441,15 @@ package STM32.F4.RCC is
 		ADC3   at 0 range 10 .. 10;
 		SDIO   at 0 range 11 .. 11;
 		SPI1   at 0 range 12 .. 12;
+		SPI4   at 0 range 13 .. 13;
 		SYSCFG at 0 range 14 .. 14;
 		TIM9   at 0 range 16 .. 16;
 		TIM10  at 0 range 17 .. 17;
 		TIM11  at 0 range 18 .. 18;
+		SPI5   at 0 range 20 .. 20;
+		SPI6   at 0 range 21 .. 21;
+		SAI1   at 0 range 22 .. 22;
+		LTDC   at 0 range 26 .. 26;
 	end record;
 
 	-- BCDR
