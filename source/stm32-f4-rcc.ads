@@ -94,10 +94,10 @@ package STM32.F4.RCC is
 		AHB_Prescaler_4,
 		AHB_Prescaler_8,
 		AHB_Prescaler_16,
-		AHB_Prescaler_32,
 		AHB_Prescaler_64,
 		AHB_Prescaler_128,
-		AHB_Prescaler_256
+		AHB_Prescaler_256,
+		AHB_Prescaler_512
 	) with Size => 4;
 
 	for AHB_Prescaler_Factor use (
@@ -106,10 +106,10 @@ package STM32.F4.RCC is
 		AHB_Prescaler_4 => 2#1001#,
 		AHB_Prescaler_8 => 2#1010#,
 		AHB_Prescaler_16 => 2#1011#,
-		AHB_Prescaler_32 => 2#1100#,
-		AHB_Prescaler_64 => 2#1101#,
-		AHB_Prescaler_128 => 2#1110#,
-		AHB_Prescaler_256 => 2#1111#
+		AHB_Prescaler_64 => 2#1100#,
+		AHB_Prescaler_128 => 2#1101#,
+		AHB_Prescaler_256 => 2#1110#,
+		AHB_Prescaler_512 => 2#1111#
 	);
 
 	type APB_Prescaler_Factor is (
