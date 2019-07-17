@@ -15,12 +15,17 @@ procedure UART_429Disco is
 	--Ratio : constant := (APB2_Frequency + Baud_Rate / 2) / Baud_Rate;
 	Ratio : constant := 128;
 
-	Period: constant Time_Span := Milliseconds(500);
+	Period: constant Time_Span := Milliseconds(100);
 	Now: Time := Clock;
 
 
 begin
 	-- clock test
+
+	RCC.CFGR.HPRE := AHB_Prescaler_1;
+	RCC.CFGR.PPRE2 := APB_Prescaler_2;
+
+	
 	RCC.AHB1ENR.GPIOC := True;
 	RCC.CFGR.MCO2PRE := MCO_Prescaler_5;
 	RCC.CFGR.MCO2 := Clock_Output_2_SYSCLK;
@@ -30,10 +35,19 @@ begin
 	GPIOC.AFR(9) := Alternate_Functions.SYS;
 	GPIOC.MODER(9) := Alternate_Mode;
 
+	RCC.AHB1ENR.GPIOA := True;
+
+
+	RCC.APB2ENR.USART1 := True;
+
+	RCC.APB2RSTR.USART1 := True;
+
+	RCC.APB2RSTR.USART1 := False;
+	
+
 	--
 
 
-	RCC.AHB1ENR.GPIOA := True;
 
 	UART_Port.OTYPER(UART_TX_Bit) := Push_Pull_Type;
 	UART_Port.OSPEEDR(UART_TX_Bit) := Very_High_Speed;
@@ -47,20 +61,25 @@ begin
 	UART_Port.AFR(UART_RX_Bit) := Alternate_Functions.USART1;
 	UART_Port.MODER(UART_RX_Bit) := Alternate_Mode;
 
-	--RCC.CFGR.PPRE2 := APB_Prescaler_4;
 
-	RCC.APB2ENR.USART1 := True;
+
+
+
+	USART1.BRR.DIV_Mantissa := 1; -- Ratio / 16;
+	USART1.BRR.DIV_Fraction := 0; -- Ratio mod 16;
+
+	USART1.GTPR.PSC := 1;
+
 	
 	USART1.CR2.STOP := Stop_1_Bit;
 	USART1.CR1.M := Word_8_Bits;
 	USART1.CR1.PCE := False;
 	USART1.CR1.TE := True;
 	USART1.CR1.RE := True;
+	USART1.CR1.OVER8 := True;
 	USART1.CR3.CTSE := False;
 	USART1.CR3.RTSE := False;
 
-	USART1.BRR.DIV_Mantissa := Ratio / 16;
-	USART1.BRR.DIV_Fraction := Ratio mod 16;
 
 	USART1.CR1.UE := True;
 	
